@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GildedRoseKata.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,12 @@ namespace GildedRoseKata
     /// <summary>
     /// Wrapper for Item type to implement quality loss through ageing
     /// </summary>
-    internal class AgeingItemWrapper
+    internal class AgeingItemWrapper : IAgeingItemWrapper
     {
         /// <summary>
         /// The item being wrapped
         /// </summary>
         protected Item _item;
-
-        /// <summary>
-        /// Getter for wrapped item
-        /// </summary>
-        public Item Item { get { return _item; } }
 
         /// <summary>
         /// Ctor for Ageing Item Wrapper

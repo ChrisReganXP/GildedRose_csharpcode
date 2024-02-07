@@ -15,14 +15,7 @@ public class GildedRose
     {
         foreach (var item in _items) 
         {
-            if (item.Name == "Aged Brie")
-            {
-                new AppreciatingItemWrapper(item).AgeByDay();
-            }
-            else
-            {
-                new AgeingItemWrapper(item).AgeByDay();
-            }
+            GildedRoseItemFactory.CreateItemWrapper(item).AgeByDay();
         }
     }
 
