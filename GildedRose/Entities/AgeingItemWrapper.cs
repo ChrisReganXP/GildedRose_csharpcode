@@ -37,7 +37,10 @@ namespace GildedRoseKata
         /// </summary>
         public virtual void AgeByDay()
         {
-            HandleInvalidQuality();
+            if (HandleInvalidQuality())
+            {
+                return;
+            }
 
             _item.SellIn--;
             _item.Quality--;
@@ -53,10 +56,14 @@ namespace GildedRoseKata
         public bool HandleInvalidQuality()
         {
             // no handler for these in scope
-            if (_item.SellIn == int.MinValue || _item.Quality == int.MinValue || _item.Quality == int.MaxValue)
+            if (_item.SellIn == int.MinValue)
+            {
+                return true;
+            }
+
+            if (_item.Quality < GildedRose.MINIMUM_QUALITY_ALLOWED || _item.Quality > GildedRose.MAXIMUM_QUALITY_ALLOWED)
             {
                 ApplyQualityMinMax();
-                return true;
             }
 
             return false;

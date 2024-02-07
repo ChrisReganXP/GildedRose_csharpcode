@@ -15,8 +15,20 @@ namespace GildedRoseKata
 
         private const string SulfurasName = "SULFURAS, HAND OF RAGNAROS";
 
+        private const string ConjuredItemPrefix = "CONJURED ";
+
+        /// <summary>
+        /// Creates a Wrapper item based on Item.Name
+        /// </summary>
+        /// <param name="item">the item to produce a wrapper for</param>
+        /// <returns>the wrapped item</returns>
         public static IAgeingItemWrapper CreateItemWrapper(Item item)
         {
+            if (item.Name.ToUpper().StartsWith(ConjuredItemPrefix))
+            {
+                return new ConjuredItemWrapper(item);
+            }
+
             switch (item.Name.ToUpper())
             {
                 case AgedBriedName:

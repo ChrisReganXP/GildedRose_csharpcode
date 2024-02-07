@@ -29,6 +29,7 @@ public class GildedRoseTest
     [TestCase("Conjured Bath Salts", 8, 40, 3, 34, "Conjured item staying in date")]
     [TestCase("Conjured Bath Salts", 4, 35, 9, 7, "Conjured item passing sell by date")]
     [TestCase("Conjured Bath Salts", 6, 25, 10, 0, "Conjured item dropping to zero")]
+    [TestCase("Conjured Bath Salts", int.MinValue, 34, 5, 34, "Conjured item impossible days old")]
     public void UpdateQualityTests(string itemName, int sellIn, int quality, int daysToExecute, int expectedQuality, string testName)
     {
         IList<Item> Items = new List<Item> { new Item { Name = itemName, SellIn = sellIn, Quality = quality } };
