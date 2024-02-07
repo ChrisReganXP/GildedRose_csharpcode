@@ -21,6 +21,9 @@ namespace GildedRoseKata
         {
         }
 
+        /// <summary>
+        /// Age the wrapped Item by one day
+        /// </summary>
         public override void AgeByDay()
         {
             _item.SellIn--;

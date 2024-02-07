@@ -9,14 +9,22 @@ namespace GildedRoseKata
 {
     internal static class GildedRoseItemFactory
     {
+        private const string AgedBriedName = "AGED BRIE";
+
+        private const string BackStagePassesName = "BACKSTAGE PASSES TO A TAFKAL80ETC CONCERT";
+
+        private const string SulfurasName = "SULFURAS, HAND OF RAGNAROS";
+
         public static IAgeingItemWrapper CreateItemWrapper(Item item)
         {
             switch (item.Name.ToUpper())
             {
-                case "AGED BRIE":
+                case AgedBriedName:
                     return new AppreciatingItemWrapper(item);
-                case "BACKSTAGE PASSES TO A TAFKAL80ETC CONCERT":
+                case BackStagePassesName:
                     return new DeadlineItemWrapper(item);
+                case SulfurasName:
+                    return new StableItemWrapper(item);
                 default:
                     return new AgeingItemWrapper(item);
             }
