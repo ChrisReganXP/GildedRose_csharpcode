@@ -44,6 +44,15 @@ namespace GildedRoseKata
             {
                 _item.Quality--;
             }
+
+            ApplyQualityMinMax();
+        }
+
+        protected void ApplyQualityMinMax() 
+        {
+            _item.Quality = Math.Min(
+                Math.Max(_item.Quality, GildedRose.MINIMUM_QUALITY_ALLOWED),
+                GildedRose.MAXIMUM_QUALITY_ALLOWED);
         }
     }
 }

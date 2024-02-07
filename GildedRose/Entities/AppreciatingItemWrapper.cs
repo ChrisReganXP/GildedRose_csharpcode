@@ -32,6 +32,8 @@ namespace GildedRoseKata
             {
                 _item.Quality++;
             }
+
+            ApplyQualityMinMax();
         }
     }
 }
