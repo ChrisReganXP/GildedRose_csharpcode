@@ -53,6 +53,10 @@ namespace GildedRoseKata
             ApplyQualityMinMax();
         }
 
+        /// <summary>
+        /// Updates invalid values to expected ranges. Return indicates impossible situation
+        /// </summary>
+        /// <returns>true when the item cannot be aged</returns>
         public bool HandleInvalidQuality()
         {
             // no handler for these in scope
@@ -69,6 +73,9 @@ namespace GildedRoseKata
             return false;
         }
 
+        /// <summary>
+        /// Enforces location based min/max rules
+        /// </summary>
         protected void ApplyQualityMinMax() 
         {
             _item.Quality = Math.Min(
