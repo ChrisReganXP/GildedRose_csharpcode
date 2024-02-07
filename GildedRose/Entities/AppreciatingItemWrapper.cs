@@ -25,6 +25,11 @@ namespace GildedRoseKata
         /// </summary>
         public override void AgeByDay()
         {
+            if (HandleInvalidQuality())
+            {
+                return;
+            }
+
             _item.SellIn--;
             _item.Quality++;
 
