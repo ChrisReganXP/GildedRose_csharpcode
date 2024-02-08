@@ -24,22 +24,18 @@ namespace GildedRoseKata
         /// <returns>the wrapped item</returns>
         public static IAgeingItemWrapper CreateItemWrapper(Item item)
         {
-            if (item.Name.ToUpper().StartsWith(ConjuredItemPrefix))
+            if (item.Name.StartsWith(ConjuredItemPrefix, StringComparison.InvariantCultureIgnoreCase))
             {
                 return new ConjuredItemWrapper(item);
             }
 
-            switch (item.Name.ToUpper())
+            return item.Name.ToUpper() switch
             {
-                case AgedBriedName:
-                    return new AppreciatingItemWrapper(item);
-                case BackStagePassesName:
-                    return new DeadlineItemWrapper(item);
-                case SulfurasName:
-                    return new StableItemWrapper(item);
-                default:
-                    return new AgeingItemWrapper(item);
-            }
+                AgedBriedName => new AppreciatingItemWrapper(item),
+                BackStagePassesName => new DeadlineItemWrapper(item),
+                SulfurasName => new StableItemWrapper(item),
+                _ => new AgeingItemWrapper(item),
+            };
         }
     }
 }

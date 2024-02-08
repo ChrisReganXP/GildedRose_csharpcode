@@ -32,11 +32,11 @@ namespace GildedRoseKata
             }
 
             _item.SellIn--;
-            _item.Quality = _item.Quality - 2;
+            _item.Quality -= 2;
 
             if (_item.SellIn < 0)
             {
-                _item.Quality = _item.Quality - 2;
+                _item.Quality -= 2;
             }
 
             ApplyQualityMinMax();

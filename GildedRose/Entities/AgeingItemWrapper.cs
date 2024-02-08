@@ -24,10 +24,7 @@ namespace GildedRoseKata
         public AgeingItemWrapper(Item item)
         {
             // or other appropriate error handling
-            if (item == null)
-            {
-                throw new ArgumentNullException("item");
-            }
+            ArgumentNullException.ThrowIfNull(item);
 
             _item = item;
         }
